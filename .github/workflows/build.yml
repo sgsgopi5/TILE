@@ -17,8 +17,10 @@ jobs:
       - name: Install Project Dependencies
         run: npm install
 
-      - name: Compile Static Assets
-        run: npm run build
+      - name: Package Web Assets for Capacitor
+        run: |
+          mkdir -p www
+          cp index.html www/
 
       - name: Set up Android SDK & Java Runtime
         uses: actions/setup-java@v4
@@ -28,7 +30,7 @@ jobs:
 
       - name: Initialize Native Capacitor Bridge
         run: |
-          npx cap init "Grid Lock" "com.global.gridlock" --web-dir=.
+          npx cap init "Grid Lock" "com.global.gridlock" --web-dir=www
           npx cap add android
 
       - name: Package Native Android Framework Assets
