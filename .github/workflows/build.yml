@@ -28,7 +28,7 @@ jobs:
 
       - name: Initialize Native Capacitor Bridge
         run: |
-          npx cap init "com.global.gridlock" "Grid Lock" --web-dir=.
+          npx cap init "Grid Lock" "com.global.gridlock" --web-dir=.
           npx cap add android
 
       - name: Package Native Android Framework Assets
